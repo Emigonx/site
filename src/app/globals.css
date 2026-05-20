@@ -1,0 +1,220 @@
+@import "tailwindcss";
+
+:root {
+  --background: #090e18;
+  --foreground: #e9f0ff;
+  --surface: rgba(18, 27, 44, 0.74);
+  --surface-strong: rgba(24, 35, 56, 0.92);
+  --muted: #a2b2ca;
+  --line: rgba(169, 192, 229, 0.18);
+  --ink: #eff4ff;
+  --accent: #2ec6b6;
+  --accent-2: #ff8f63;
+  --tint: rgba(46, 198, 182, 0.16);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  min-height: 100vh;
+  color: var(--foreground);
+  font-family: var(--font-sans), "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(46, 198, 182, 0.28), transparent 42%),
+    radial-gradient(circle at 88% 22%, rgba(255, 143, 99, 0.22), transparent 30%),
+    linear-gradient(180deg, #0f1728 0%, var(--background) 45%, #070b13 100%);
+}
+
+.ambient-bg {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.28;
+  mask-image: radial-gradient(circle at 50% 40%, black 36%, transparent 86%);
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 1.35rem;
+  background: var(--surface);
+  box-shadow:
+    0 20px 45px rgba(1, 4, 12, 0.5),
+    inset 0 0 0 1px rgba(216, 230, 255, 0.04);
+  backdrop-filter: blur(8px);
+}
+
+.hero-glow {
+  background: linear-gradient(100deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cta {
+  border-radius: 999px;
+  padding: 0.72rem 1.1rem;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+}
+
+.cta-primary {
+  background: linear-gradient(120deg, var(--accent), #109dca);
+  color: #031417;
+  box-shadow: 0 10px 24px rgba(18, 196, 182, 0.28);
+}
+
+.cta-secondary {
+  border: 1px solid var(--line);
+  color: var(--ink);
+  background: rgba(22, 33, 53, 0.92);
+}
+
+.cta-ghost {
+  border: 1px dashed rgba(169, 192, 229, 0.3);
+  color: var(--ink);
+}
+
+.metric-card {
+  border-radius: 1rem;
+  border: 1px solid var(--line);
+  background: var(--surface-strong);
+  padding: 1rem 1.05rem;
+}
+
+.metric-value {
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(1.4rem, 3.3vw, 2rem);
+  line-height: 1;
+  color: var(--ink);
+}
+
+.metric-label {
+  margin-top: 0.42rem;
+  font-size: 0.79rem;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--muted);
+}
+
+.section-title {
+  font-size: clamp(1.45rem, 2.8vw, 1.92rem);
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.body-copy {
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+.timeline-item {
+  border-left: 2px solid rgba(2, 163, 154, 0.34);
+  padding: 0.2rem 0 0.5rem 1rem;
+}
+
+.timeline-period {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.timeline-role {
+  margin-top: 0.22rem;
+  font-size: 1.16rem;
+  color: var(--ink);
+}
+
+.timeline-company {
+  margin-top: 0.22rem;
+  font-size: 0.9rem;
+  color: #c4d3ee;
+}
+
+.timeline-impact {
+  margin-top: 0.45rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.portfolio-card {
+  border: 1px solid var(--line);
+  border-radius: 1.2rem;
+  background: linear-gradient(145deg, rgba(21, 32, 53, 0.93), rgba(13, 20, 35, 0.78));
+  padding: 1.35rem;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(46, 198, 182, 0.65);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
+.portfolio-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.portfolio-title {
+  margin-top: 0.6rem;
+  font-size: 1.18rem;
+  color: var(--ink);
+}
+
+.portfolio-note {
+  margin-top: 0.6rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.portfolio-action {
+  margin-top: 1rem;
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.reveal {
+  animation: reveal-up 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .panel {
+    border-radius: 1rem;
+  }
+}
